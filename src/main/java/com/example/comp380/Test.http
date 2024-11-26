@@ -1,0 +1,7 @@
+POST http://localhost:8080/bookings/createBooking
+Content-Type: application/json
+
+{
+  "bookingId": 1,
+  "user": 2
+}
