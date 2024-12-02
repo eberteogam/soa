@@ -8,9 +8,13 @@ import java.util.List;
 @Service
 public class BookingService {
 
+@Autowired
     BookingRepository bookingRepository;
 
     public Booking createBooking(Booking booking) {
+        System.out.println("Received Booking2: " + booking);
+        System.out.println("Received Code2:" + booking.getBookingConfirmationCode());
         return bookingRepository.save(booking);
     }
 }
+

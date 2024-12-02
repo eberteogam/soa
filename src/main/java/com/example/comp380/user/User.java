@@ -1,53 +1,34 @@
 package com.example.comp380.user;
 
 import com.example.comp380.booking.Booking;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.stereotype.Component;
+//import java.time.Instant;
 import java.util.List;
 
 @Entity
+@Component
+@Table(name = "users_user")
+@Getter
+@Setter
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_id")
     private Long userId;
-    private String userEmail;
-    private String userPassword;
-    private String userCreatedAt;
-    @OneToMany(mappedBy = "user_id")
+
+    @OneToMany(mappedBy = "user")
+    @JsonManagedReference
     private List<Booking> bookings;
-    public User(){}
 
-    public long gerUser(){
-        return this.userId;
-    }
-
-    public String getUserEmail(){
-        return this.userEmail;
-    }
-
-    public String getUserPassword(){
-        return this.userPassword;
-    }
-    public String getUserCreatedAt(){
-        return this.userCreatedAt;
-    }
-
-    public List<Booking> getBookings(){
-        return bookings;
-    }
-
-    public void setUserId(long userId){
-        this.userId = userId;
-    }
-    public void setUserEmail(String email){
-        this.userEmail = email;
-    }
-    public  void setUserPassword(String superPassword){
-        this.userPassword = superPassword;
-    }
-    public void setUserCreatedAt(String createdAt){
-        this.userCreatedAt = createdAt;
-    }
-    public void SetBookings(List<Booking> bookings) {
-        this.bookings = bookings;
-    }
+    @Column(name = "user_email")
+    private String userEmail;
+    @Column(name = "user_password")
+    private String userPassword;
+//    @Column(name = "user_isUserDeleted")
+//    private  Boolean userIsUserDeleted;
 }
+

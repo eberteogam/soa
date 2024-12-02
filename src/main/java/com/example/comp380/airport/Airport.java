@@ -1,18 +1,30 @@
 package com.example.comp380.airport;
 
-import com.example.comp380.user.User;
+import jakarta.persistence.*;
+import lombok.*;
+import org.springframework.stereotype.Component;
 
-import javax.persistence.*;
 
 @Entity
+@Component
+@Table
+@Getter
+@Setter
 public class Airport {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "airport_id")
     private Long airportId;
-    private String airportName;
-    private String airportCode;
-    private String airportLocation;
-    private String airportTimezone;
 
-    // Getters and setters
+    @Column(name = "airport_name")
+    private String airportName;
+
+    @Column(name = "airport_code")
+    private String airportCode;
+
+    @Column(name = "airport_location")
+    private String airportLocation;
+
+    @Column(name = "airport_time_zone")
+    private String airportTimezone;
 }

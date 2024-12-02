@@ -1,7 +1,45 @@
+### /bookings/
 POST http://localhost:8080/bookings/createBooking
 Content-Type: application/json
+Authorization: Basic dGVvOnBhc3N3b3Jk
 
 {
-  "bookingId": 1,
-  "user": 2
+  "user": {
+    "userId": 32
+  },
+  "paymentId": {
+    "paymentId": 1,
+    "paymentAmount": 23456
+  },
+  "bookingConfirmationCode": "123456",
+  "isRoundTrip": false
+}
+
+
+### /users/
+POST http://localhost:8080/users/createUser
+Content-Type: application/json
+Authorization: Basic dGVvOnBhc3N3b3Jk
+
+{
+  "userEmail": "ebertepo@hotmail.com",
+  "userPassword": "password"
+}
+
+###
+GET http://localhost:8080/users/32
+Content-Type: application/json
+Authorization: Basic dGVvOnBhc3N3b3Jk
+
+
+###
+GET localhost:8080/users/username
+
+###/payment
+POST http://localhost:8080/payments/createPayment
+Content-Type: application/json
+Authorization: Basic dGVvOnBhc3N3b3Jk
+
+{
+    "paymentAmount": 23456
 }

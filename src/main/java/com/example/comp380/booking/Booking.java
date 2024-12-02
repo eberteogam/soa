@@ -1,68 +1,35 @@
 package com.example.comp380.booking;
-//import com.example.comp380.user.User;
-//import com.example.comp380.payment.Payment;
+
+import com.example.comp380.payment.Payment;
+import com.example.comp380.user.User;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
+import lombok.*;
 import org.springframework.stereotype.Component;
 
-@Component
 @Entity
-@Table(name = "bookings")
+@Component
+@Table(name = "users_booking")
+@Getter
+@Setter
 public class Booking {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "booking_id")
     private Long bookingId;
-//    @ManyToOne
-//    @JoinColumn(name = "user_id")
-    @Column(name = "user")
-    private Long user;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    @JsonBackReference
+    private User user;
 
+    @OneToOne
+    @JoinColumn(name = "payment_id")
+    private Payment paymentId;
 
+    @Column(name = "booking_confirmation_code")
+    private String bookingConfirmationCode;
 
-//    @OneToOne
-//    @JoinColumn(name = "payment_id")
-//    private long paymentId;
-//    private String bookingConfirmationCode;
-//    private Boolean isOneWay;
-//
-//    public long getBookingId() {
-//        return this.bookingId;
-//    }
-//
-//    public long getUser() {
-//        return this.user;
-//    }
-//
-//    public long getPaymentId() {
-//        return this.paymentId;
-//    }
-//
-//    public String getBookingConfirmationCode() {
-//        return this.bookingConfirmationCode;
-//    }
-//
-//    public void setBookingId(Long bookingId) {
-//        this.bookingId = bookingId;
-//    }
-//
-//    public void setUser(Long user) {
-//        this.user = user;
-//    }
-//
-//    public void setPaymentId(long paymentId) {
-//        this.paymentId = paymentId;
-//    }
-//
-//    public void setBookingConfirmationCode(String bookingConfirmationCode) {
-//        this.bookingConfirmationCode = bookingConfirmationCode;
-//    }
-
+    @Column(name = "booking_is_round_trip")
+    private Boolean isRoundTrip;
 }
-
-
-
-
-
-
-
