@@ -3,6 +3,7 @@ package com.example.comp380.booking;
 import com.example.comp380.payment.Payment;
 import com.example.comp380.user.User;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.stereotype.Component;
@@ -23,9 +24,10 @@ public class Booking {
     @JsonBackReference
     private User user;
 
-    @OneToOne
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name = "payment_id")
-    private Payment paymentId;
+    @JsonManagedReference
+    private Payment payment;
 
     @Column(name = "booking_confirmation_code")
     private String bookingConfirmationCode;

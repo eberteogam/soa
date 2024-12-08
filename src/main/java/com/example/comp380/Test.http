@@ -1,19 +1,21 @@
-### /bookings/
+###/bookings/
 POST http://localhost:8080/bookings/createBooking
 Content-Type: application/json
 Authorization: Basic dGVvOnBhc3N3b3Jk
 
 {
   "user": {
-    "userId": 32
+    "userId": 35
   },
-  "paymentId": {
-    "paymentId": 1,
-    "paymentAmount": 23456
+  "payment": {
+    "paymentId":30
   },
-  "bookingConfirmationCode": "123456",
-  "isRoundTrip": false
+  "isRoundTrip": true
 }
+###
+GET http://localhost:8080/bookings/50
+Content-Type: application/json
+Authorization: Basic dGVvOnBhc3N3b3Jk
 
 
 ### /users/
@@ -22,18 +24,14 @@ Content-Type: application/json
 Authorization: Basic dGVvOnBhc3N3b3Jk
 
 {
-  "userEmail": "ebertepo@hotmail.com",
+  "userEmail": "liam@hotmail.com",
   "userPassword": "password"
 }
 
 ###
-GET http://localhost:8080/users/32
+GET http://localhost:8080/users/35
 Content-Type: application/json
 Authorization: Basic dGVvOnBhc3N3b3Jk
-
-
-###
-GET localhost:8080/users/username
 
 ###/payment
 POST http://localhost:8080/payments/createPayment
@@ -41,5 +39,39 @@ Content-Type: application/json
 Authorization: Basic dGVvOnBhc3N3b3Jk
 
 {
-    "paymentAmount": 23456
+    "paymentAmount": 123
+}
+
+###
+GET http://localhost:8080/payments/29
+Content-Type: application/json
+Authorization: Basic dGVvOnBhc3N3b3Jk
+
+
+###/airports
+
+GET http://localhost:8080/airports/getAllAirports
+Content-Type: application/json
+Authorization: Basic dGVvOnBhc3N3b3Jk
+
+###
+GET http://localhost:8080/airports/2
+Content-Type: application/json
+Authorization: Basic dGVvOnBhc3N3b3Jk
+
+###/flights
+POST http://localhost:8080/flights/createFlight
+Content-Type: application/json
+Authorization: Basic dGVvOnBhc3N3b3Jk
+
+{
+    "airportDeparture": {
+        "airportId": 6
+    },
+    "airportDestination": {
+        "airportId": 5
+    },
+    "flightDepartureTime": "2021-04-01T12:00:00",
+    "flightDestinationTime": "2021-04-01T14:00:00",
+    "flightPrice": 109
 }

@@ -1,26 +1,26 @@
 package com.example.comp380.payment;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/payments")
 public class PaymentController {
 
     @Autowired
-    private PaymentRepository paymentRepository;
+    PaymentService paymentService;
 
-    @PostMapping("/createPayment")
-    public Payment createPayment(Payment payment) {
-        return paymentRepository.save(payment);
+    @PostMapping(value = "/createPayment", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Payment> createPayment(@RequestBody Payment payment) {
+        Payment createdPayment = paymentService.createPayment(payment);
+        return  new ResponseEntity<>(createdPayment, HttpStatus.CREATED);
+    }
+    @GetMapping("/{id}")
+    public Payment getPaymentById(@PathVariable Long id) {
+        return paymentService.getPaymentById(id);
     }
 
 }
-
-//First we have the PaymentController class. This class is annotated with @RestController and @RequestMapping("/payments").
-
-// Search booking code page
-
-// Add in the Flight Options page the airports name

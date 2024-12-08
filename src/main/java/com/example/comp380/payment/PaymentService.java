@@ -12,4 +12,8 @@ public class PaymentService{
     public Payment createPayment(Payment payment) {
         return paymentRepository.save(payment);
     }
+
+    public Payment getPaymentById(Long id) {
+        return paymentRepository.findById(id).orElseThrow(()->new IllegalArgumentException("Payment not found"));
+    }
 }

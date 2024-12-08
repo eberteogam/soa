@@ -1,6 +1,7 @@
 package com.example.comp380.user;
 
 import com.example.comp380.booking.Booking;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -14,6 +15,7 @@ import java.util.List;
 @Table(name = "users_user")
 @Getter
 @Setter
+
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,9 +28,9 @@ public class User {
 
     @Column(name = "user_email")
     private String userEmail;
+
     @Column(name = "user_password")
     private String userPassword;
 //    @Column(name = "user_isUserDeleted")
 //    private  Boolean userIsUserDeleted;
 }
-

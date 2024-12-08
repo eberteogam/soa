@@ -32,14 +32,6 @@ public class UserController {
         return userService.getUserById(id);
     }
 
-    //To see the username of the user that is currently logged in
-//    @GetMapping("/username")
-//    public String getUsername() {
-//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-//        String username = authentication.getName();
-//        return "Hello, " + username;
-//    }
-
 //    @GetMapping
 //    public List<User> getAllUsers() {
 //        return userService.getAllUsers();

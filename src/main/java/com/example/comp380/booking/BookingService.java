@@ -12,9 +12,12 @@ public class BookingService {
     BookingRepository bookingRepository;
 
     public Booking createBooking(Booking booking) {
-        System.out.println("Received Booking2: " + booking);
-        System.out.println("Received Code2:" + booking.getBookingConfirmationCode());
         return bookingRepository.save(booking);
     }
+
+    public Booking getBookingById(Long id) {
+        return bookingRepository.findById(id).orElse(null);
+    }
+
 }
 
