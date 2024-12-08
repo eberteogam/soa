@@ -26,6 +26,7 @@ public class User {
     @JsonManagedReference
     private List<Booking> bookings;
 
+
     @Column(name = "user_email")
     private String userEmail;
 

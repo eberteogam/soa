@@ -31,11 +31,13 @@ public class ViewsController {
         return "signup";
     }
 
+    @GetMapping("/login")
+    public String login() {
+        return "login";
+    }
+
     @GetMapping("/user")
     public String User() {
         return "user";
     }
-
-
-
 }

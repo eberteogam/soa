@@ -5,15 +5,15 @@ Authorization: Basic dGVvOnBhc3N3b3Jk
 
 {
   "user": {
-    "userId": 35
+    "userId": 42
   },
   "payment": {
-    "paymentId":30
+    "paymentId":32
   },
   "isRoundTrip": true
 }
 ###
-GET http://localhost:8080/bookings/50
+GET http://localhost:8080/bookings/52
 Content-Type: application/json
 Authorization: Basic dGVvOnBhc3N3b3Jk
 
@@ -29,7 +29,7 @@ Authorization: Basic dGVvOnBhc3N3b3Jk
 }
 
 ###
-GET http://localhost:8080/users/35
+GET http://localhost:8080/users/42
 Content-Type: application/json
 Authorization: Basic dGVvOnBhc3N3b3Jk
 
@@ -43,13 +43,12 @@ Authorization: Basic dGVvOnBhc3N3b3Jk
 }
 
 ###
-GET http://localhost:8080/payments/29
+GET http://localhost:8080/payments/31
 Content-Type: application/json
 Authorization: Basic dGVvOnBhc3N3b3Jk
 
 
 ###/airports
-
 GET http://localhost:8080/airports/getAllAirports
 Content-Type: application/json
 Authorization: Basic dGVvOnBhc3N3b3Jk
