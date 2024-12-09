@@ -18,7 +18,7 @@ public class Payment {
     private Long paymentId;
 
     @OneToOne(mappedBy = "payment")
-    @JsonBackReference
+    @JsonBackReference(value = "paymentBooking")
     private Booking booking;
 
     @Column(name = "payment_amount")

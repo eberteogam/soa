@@ -7,7 +7,6 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.stereotype.Component;
-//import java.time.Instant;
 import java.util.List;
 
 @Entity
@@ -23,7 +22,7 @@ public class User {
     private Long userId;
 
     @OneToMany(mappedBy = "user")
-    @JsonManagedReference
+    @JsonManagedReference(value = "userBooking")
     private List<Booking> bookings;
 
 

@@ -9,14 +9,21 @@ Authorization: Basic dGVvOnBhc3N3b3Jk
     "userId": 42
   },
   "payment": {
-    "paymentId":32
+    "paymentId":36
   },
+  "passengers": [
+    {
+    "passengerName": "Liam",
+    "passengerLastName": "Gamarra",
+    "passengerContactNumber": "1234567890"
+    }
+  ],
   "isRoundTrip": true
 }
 
 ###
 
-GET http://localhost:8080/bookings/52
+GET http://localhost:8080/bookings/56
 Content-Type: application/json
 Authorization: Basic dGVvOnBhc3N3b3Jk
 
@@ -50,7 +57,7 @@ Authorization: Basic dGVvOnBhc3N3b3Jk
 
 ###
 
-GET http://localhost:8080/payments/31
+GET http://localhost:8080/payments/36
 Content-Type: application/json
 Authorization: Basic dGVvOnBhc3N3b3Jk
 
@@ -95,6 +102,22 @@ Authorization: Basic dGVvOnBhc3N3b3Jk
 ###
 
 GET http://localhost:8080/flights/getAllFlights
+Content-Type: application/json
+Authorization: Basic dGVvOnBhc3N3b3Jk
+
+###/passengers
+POST http://localhost:8080/passengers/createPassenger
+Content-Type: application/json
+Authorization: Basic dGVvOnBhc3N3b3Jk
+
+{
+    "passengerName": "Liam",
+    "passengerLastName": "Gamarra",
+  "passengerContactNumber": "1234567890"
+}
+
+###
+GET http://localhost:8080/passengers/1
 Content-Type: application/json
 Authorization: Basic dGVvOnBhc3N3b3Jk
 

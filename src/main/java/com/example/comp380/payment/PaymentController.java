@@ -13,7 +13,7 @@ public class PaymentController {
     @Autowired
     PaymentService paymentService;
 
-    @PostMapping(value = "/createPayment", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/createPayment")
     public ResponseEntity<Payment> createPayment(@RequestBody Payment payment) {
         Payment createdPayment = paymentService.createPayment(payment);
         return  new ResponseEntity<>(createdPayment, HttpStatus.CREATED);

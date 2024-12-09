@@ -15,7 +15,6 @@ import java.util.List;
 @Table(name = "flights_flight")
 @Getter
 @Setter
-
 public class Flight {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
