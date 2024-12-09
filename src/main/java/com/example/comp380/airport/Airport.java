@@ -22,13 +22,13 @@ public class Airport {
     @Column(name = "airport_id")
     private Long airportId;
 
-//    @OneToMany(mappedBy = "flight")
-//    @JsonBackReference
-//    private Airport airport;
+    @OneToMany(mappedBy = "airportDeparture")
+    @JsonManagedReference(value = "airportDeparture")
+    private List<Flight> flightsDeparture;
 
-
-//    @ManyToOne(mappedBy = "airportDestination")
-//    private Flight airportDestination;
+    @OneToMany(mappedBy = "airportDestination")
+    @JsonManagedReference(value = "airportDestination")
+    private List<Flight> flightsDestination;
 
     @Column(name = "airport_name")
     private String airportName;

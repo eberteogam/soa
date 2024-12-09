@@ -7,7 +7,7 @@
     <title>Flight Booking @ MITA</title>
     <link rel="stylesheet" href="mitastyle.css">
     <style>
-        /* Paymenttt */
+        /* Payment */
         * {
             margin: 0;
             padding: 0;
@@ -205,15 +205,9 @@
 </head>
 
 <body>
+
     <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="logo">MITA</div>
-        <ul class="nav-links">
-            <li><a href="mitaindex.jsp" class="home-link">Home</a></li>
-            <li><a href="signup.jsp">Log In / Sign Up</a></li>
-            <li><a href="#">Contact Us</a></li>
-        </ul>
-    </nav>
+    <%@ include file="navbar.jsp" %>
 
 
     <!-- PAYMENT SECTION -->

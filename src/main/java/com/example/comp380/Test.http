@@ -1,4 +1,5 @@
 ###/bookings/
+
 POST http://localhost:8080/bookings/createBooking
 Content-Type: application/json
 Authorization: Basic dGVvOnBhc3N3b3Jk
@@ -12,13 +13,16 @@ Authorization: Basic dGVvOnBhc3N3b3Jk
   },
   "isRoundTrip": true
 }
+
 ###
+
 GET http://localhost:8080/bookings/52
 Content-Type: application/json
 Authorization: Basic dGVvOnBhc3N3b3Jk
 
 
 ### /users/
+
 POST http://localhost:8080/users/createUser
 Content-Type: application/json
 Authorization: Basic dGVvOnBhc3N3b3Jk
@@ -29,11 +33,13 @@ Authorization: Basic dGVvOnBhc3N3b3Jk
 }
 
 ###
+
 GET http://localhost:8080/users/42
 Content-Type: application/json
 Authorization: Basic dGVvOnBhc3N3b3Jk
 
 ###/payment
+
 POST http://localhost:8080/payments/createPayment
 Content-Type: application/json
 Authorization: Basic dGVvOnBhc3N3b3Jk
@@ -43,6 +49,7 @@ Authorization: Basic dGVvOnBhc3N3b3Jk
 }
 
 ###
+
 GET http://localhost:8080/payments/31
 Content-Type: application/json
 Authorization: Basic dGVvOnBhc3N3b3Jk
@@ -54,23 +61,40 @@ Content-Type: application/json
 Authorization: Basic dGVvOnBhc3N3b3Jk
 
 ###
+
 GET http://localhost:8080/airports/2
 Content-Type: application/json
 Authorization: Basic dGVvOnBhc3N3b3Jk
 
 ###/flights
+
 POST http://localhost:8080/flights/createFlight
 Content-Type: application/json
 Authorization: Basic dGVvOnBhc3N3b3Jk
 
 {
+  "flightNumber": "ABC999",
     "airportDeparture": {
-        "airportId": 6
+        "airportId": 1
     },
     "airportDestination": {
-        "airportId": 5
+        "airportId": 2
     },
     "flightDepartureTime": "2021-04-01T12:00:00",
     "flightDestinationTime": "2021-04-01T14:00:00",
-    "flightPrice": 109
+    "flightPrice": 99
 }
+
+###
+
+GET http://localhost:8080/flights/32
+Content-Type: application/json
+Authorization: Basic dGVvOnBhc3N3b3Jk
+
+
+###
+
+GET http://localhost:8080/flights/getAllFlights
+Content-Type: application/json
+Authorization: Basic dGVvOnBhc3N3b3Jk
+

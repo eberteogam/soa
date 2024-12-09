@@ -1,13 +1,23 @@
 package com.example.comp380.views;
 
+import com.example.comp380.flight.Flight;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import java.util.List;
+
 
 @Controller
 public class ViewsController {
 
+    @Autowired
+    private ViewsService viewsService;
+
     @GetMapping("/flightoption")
-    public String flightOption() {
+    public String getAllFlights(Model model) {
+        viewsService.getAllFlights(model);
         return "flightoption";
     }
 
@@ -23,7 +33,7 @@ public class ViewsController {
 
     @GetMapping("/payment")
     public String payment() {
-        return "user";
+        return "payment";
     }
 
     @GetMapping("/signup")

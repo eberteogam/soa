@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flight Booking @ MITA</title>
-    <link rel="stylesheet" href="mitastyle.css">
     <style>
         * {
             margin: 0;
@@ -128,15 +127,9 @@
 </head>
 
 <body>
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="logo">MITA</div>
-        <ul class="nav-links">
-            <li><a href="mitaindex.jsp" class="home-link">Home</a></li>
-            <li><a href="signup.jsp">Log In / Sign Up</a></li>
-            <li><a href="#">Contact Us</a></li>
-        </ul>
-    </nav>
+
+<!-- Navigation Bar -->
+<%@ include file="navbar.jsp" %>
 
     <div class="passenger-details-section">
         <h2>Passenger Details</h2>

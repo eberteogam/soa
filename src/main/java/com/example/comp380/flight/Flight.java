@@ -22,16 +22,18 @@ public class Flight {
     @Column(name = "flight_id")
     private Long flightId;
 
-//    @ManyToOne
-//    @JoinColumn(name ="airport_id_departure")
-//    @JsonManagedReference
-//    private List<Airport> airport;
+    @Column(name = "flight_number")
+    private String flightNumber;
 
+    @ManyToOne
+    @JoinColumn(name ="airport_id_departure")
+    @JsonBackReference(value = "airportDeparture")
+    private Airport airportDeparture;
 
-
-//    @OneToMany
-//    @JoinColumn(name = "airport_id_destination")
-//    private  Airport airportDestination;
+    @ManyToOne
+    @JoinColumn(name = "airport_id_destination")
+    @JsonBackReference(value = "airportDestination")
+    private  Airport airportDestination;
 
     @Column(name = "flight_departure_time")
     private Timestamp flightDepartureTime;

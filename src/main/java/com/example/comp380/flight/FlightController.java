@@ -2,10 +2,10 @@ package com.example.comp380.flight;
 
 import com.example.comp380.airport.Airport;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/flights")
@@ -14,14 +14,23 @@ public class FlightController {
     @Autowired
     private FlightService flightService;
 
-//    @PostMapping("/createFlight")
-//    public Flight createFlight(@RequestBody Flight flight) {
-//        return flightService.saveFlight(flight);
-//    }
+    @PostMapping("/createFlight")
+    public Flight createFlight(@RequestBody Flight flight) {
+        return flightService.saveFlight(flight);
+    }
 
-//    public Flight getFlightById(Long id) {
-//        return flightService.getFlightById(id);
-//    }
+    @GetMapping("/{id}")
+    public Flight getFlightById(@PathVariable Long id) {
+        return flightService.getFlightById(id);
+    }
+
+    @GetMapping("/getAllFlights")
+    public List<Flight> getAllFlights() {
+        return flightService.getAllFlights();
+    }
+
+
+
 //
 //    public void deleteFlightById(Long id) {
 //        flightService.deleteFlightById(id);
@@ -31,8 +40,6 @@ public class FlightController {
 //        flightService.updateFlightById(id, origin, destination, departureTime, arrivalTime, price);
 //    }
 //
-//    public List<Flight> getAllFlights() {
-//        return flightService.getAllFlights();
-//    }
+
 
 }

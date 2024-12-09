@@ -9,15 +9,9 @@
 </head>
 
 <body>
-    <!-- Header -->
-    <nav class="navbar">
-        <div class="logo">MITA</div>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="signup.html">Log In/Sign Up</a></li>
-            <li><a href="#">Contact Us</a></li>
-        </ul>
-    </nav>
+    <!-- Navigation Bar -->
+    <%@ include file="navbar.jsp" %>
+
         <div id="signupForm" class="auth-form">
 
             <h2>Sign Up</h2>

@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 import com.example.comp380.airport.Airport;
 import com.example.comp380.airport.AirportService;
 
+import java.util.List;
+
 @Service
 public class FlightService {
 
@@ -13,6 +15,18 @@ public class FlightService {
 
     @Autowired
     private AirportService airportService;
+
+    public Flight saveFlight(Flight flight) {
+        return flightRepository.save(flight);
+    }
+
+    public Flight getFlightById(Long id) {
+        return flightRepository.findById(id).orElse(null);
+    }
+
+    public List<Flight> getAllFlights() {
+        return flightRepository.findAll();
+    }
 
 //    public Flight saveFlight(Flight flight) {
 //        Airport departureAirport = airportService.getAirportById(flight.getAirportDeparture().getAirportId());

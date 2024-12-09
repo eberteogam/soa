@@ -15,6 +15,9 @@
 </head>
 <body>
 
+<!-- Navigation Bar -->
+<%@ include file="navbar.jsp" %>
+
 <div class="auth-container">
   <div id="loginForm" class="auth-form">
     <h2>Log In</h2>

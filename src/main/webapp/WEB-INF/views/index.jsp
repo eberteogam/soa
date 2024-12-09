@@ -261,14 +261,7 @@
 
 <body>
     <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="logo">MITA</div>
-        <ul class="nav-links">
-            <li><a href="#intro-section" class="home-link">Home</a></li>
-            <li><a href="signup">Sign Up/Log In</a></li>
-            <li><a href="#">Contact Us</a></li>
-        </ul>
-    </nav>
+    <%@ include file="navbar.jsp" %>
 
     <!-- Intro Section -->
     <section id="intro-section" class="intro">
@@ -367,10 +360,9 @@
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 MITA Airlines | All rights reserved</p>
-    </footer>
+    <!-- Footer Bar -->
+    <%@ include file="footer.jsp" %>
+
 
     <script>
         // Function to populate a dropdown menu with data from JSON

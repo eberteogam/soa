@@ -93,15 +93,9 @@
 </head>
 
 <body>
-    <!-- Header -->
-    <nav class="navbar">
-        <div class="logo">MITA</div>
-        <ul class="nav-links">
-            <li><a href="mitaindex.jsp">Home</a></li>
-            <li><a href="signup.jsp">Sign Up/Log In</a></li>
-            <li><a href="#">Contact Us</a></li>
-        </ul>
-    </nav>
+
+<!-- Navigation Bar -->
+<%@ include file="navbar.jsp" %>
 
     <!-- User Information Section -->
     <div class="user-container">
