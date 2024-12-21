@@ -18,7 +18,7 @@ public class AuthController {
 
         @PostMapping("/login")
         public RedirectView login(@ModelAttribute AuthDTO authDTO, Model model) {
-            return authService.login(authDTO);
+            return authService.login(authDTO, model);
         }
 
     @PostMapping("/signup")

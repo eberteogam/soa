@@ -30,6 +30,7 @@
 
         <form:form id="flightForm" action="/selectedFlight" method="GET">
             <input type="hidden" id="selectedFlightId" name="flightId" value=""/>
+             <input type="hidden" id="numPassengers" name="numPassengers" value="${numPassengers}"/>
             <c:forEach var="flight" items="${flights}">
                 <div class="flight-card">
                     <h3>${flight.flightNumber}</h3>

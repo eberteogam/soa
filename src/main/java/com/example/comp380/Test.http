@@ -9,13 +9,18 @@ Authorization: Basic dGVvOnBhc3N3b3Jk
     "userId": 42
   },
   "payment": {
-    "paymentId":36
+    "paymentId":37
   },
   "passengers": [
     {
     "passengerName": "Liam",
     "passengerLastName": "Gamarra",
     "passengerContactNumber": "1234567890"
+    },
+    {
+      "passengerName": "Liam's wife",
+      "passengerLastName": "Ms. G",
+      "passengerContactNumber": "1234567890"
     }
   ],
   "isRoundTrip": true
@@ -41,7 +46,7 @@ Authorization: Basic dGVvOnBhc3N3b3Jk
 
 ###
 
-GET http://localhost:8080/users/42
+GET http://localhost:8080/users/48
 Content-Type: application/json
 Authorization: Basic dGVvOnBhc3N3b3Jk
 
@@ -52,7 +57,7 @@ Content-Type: application/json
 Authorization: Basic dGVvOnBhc3N3b3Jk
 
 {
-    "paymentAmount": 123
+    "paymentAmount": 99
 }
 
 ###
@@ -80,7 +85,7 @@ Content-Type: application/json
 Authorization: Basic dGVvOnBhc3N3b3Jk
 
 {
-  "flightNumber": "ABC999",
+  "flightNumber": "AIRPERU2024",
     "airportDeparture": {
         "airportId": 1
     },

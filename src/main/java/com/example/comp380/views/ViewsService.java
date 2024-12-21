@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class ViewsService {
@@ -41,7 +42,23 @@ public class ViewsService {
         return flightService.getFlightById(Long.parseLong(flightNumber));
     }
 
+    public void savePassengerDetails(Map<String, String> passengerDetails) {
+        String numPassengersStr = passengerDetails.get("numPassengers");
+        if (numPassengersStr == null) {
+            throw new IllegalArgumentException("numPassengers parameter is missing");
+        }
+        int numPassengers = Integer.parseInt(numPassengersStr);
+        for (int i = 1; i <= numPassengers; i++) {
+            Passenger passenger = new Passenger();
+            passenger.setPassengerName(passengerDetails.get("passenger[" + i + "].firstName"));
+            passenger.setPassengerLastName(passengerDetails.get("passenger[" + i + "].lastName"));
+            passenger.setPassengerContactNumber(passengerDetails.get("passenger[" + i + "].phone"));
+            passengerService.createPassenger(passenger);
+        }
+    }
+
     public Passenger createPassenger(Passenger passenger) {
         return passengerService.createPassenger(passenger);
     }
+
 }

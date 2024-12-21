@@ -1,0 +1,82 @@
+/* header */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #004d1f;
+    /* MITA Green */
+    color: white;
+    padding: 25px;
+}
+
+.navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 15px;
+    margin-right: 25px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+.user-container {
+    max-width: 700px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+    color: #2e7d32;
+    margin-bottom: 20px;
+}
+
+.user-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 2px solid #2e7d32;
+    margin: 0 auto 20px auto;
+    display: block;
+    object-fit: cover;
+    background-color: #eaeaea;
+    /* Placeholder background */
+}
+
+.user-info {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.user-info p {
+    margin: 10px 0;
+}
+
+.user-info strong {
+    display: inline-block;
+    width: 120px;
+}
+
+.booking-info {
+    margin-top: 30px;
+    text-align: left;
+}

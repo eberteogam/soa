@@ -6,9 +6,11 @@ import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
+import java.util.Map;
 
 
 @Controller
@@ -18,20 +20,25 @@ public class ViewsController {
     private ViewsService viewsService;
 
     @GetMapping("/selectedFlight")
-    public String selectFlight(@RequestParam("flightId") String flightNumber, Model model) {
+    public String selectFlight(@RequestParam("flightId") String flightNumber,
+                                                    @RequestParam("numPassengers") int numPassengers,
+                                                    Model model) {
         Flight flight = viewsService.getFlightById(flightNumber);
-        System.out.println("flightss");
-        System.out.println(flight);
         model.addAttribute("flight", flight);
+        model.addAttribute("numPassengers", numPassengers);
         return "passenger";
     }
 
     @GetMapping("/searchFlights")
-    public String searchFlights(@RequestParam("fromLocation") Long fromLocation,  @RequestParam("toLocation") Long toLocation,  Model model) {
+    public String searchFlights(@RequestParam("fromLocation") Long fromLocation,
+                                                        @RequestParam("toLocation") Long toLocation,
+                                                        @RequestParam("numPassengers") int numPassengers,
+                                                        Model model) {
         List<Flight> flights = viewsService.searchFlightsByLocations(fromLocation, toLocation);
         model.addAttribute("flights", flights);
         model.addAttribute("fromLocation", fromLocation);
         model.addAttribute("toLocation", toLocation);
+        model.addAttribute("numPassengers", numPassengers);
         return "flightoption";
     }
 
@@ -53,10 +60,19 @@ public class ViewsController {
         return "passenger";
     }
 
+    @PostMapping("/submitPassengerDetails")
+    public String submitPassengerDetails(@RequestParam Map<String, String> passengerDetails, Model model) {
+
+        viewsService.savePassengerDetails(passengerDetails);
+
+        return "redirect:/payment";
+    }
+
     @GetMapping("/payment")
     public String payment() {
         return "payment";
     }
+
 
     @GetMapping("/signup")
     public String signUp() {

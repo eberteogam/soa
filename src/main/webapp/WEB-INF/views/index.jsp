@@ -77,8 +77,8 @@
 
                 <!-- Passengers -->
                 <div class="form-group">
-                    <label for="numPassengers">Number of Passengers:</label>
-                    <input type="number" id="numPassengers" name="numPassengers" min="1" required>
+                    <label>Number of Passengers:</label>
+                    <input type="number" name="numPassengers" min="1" required>
                 </div>
 
                 <!-- Submit Button -->

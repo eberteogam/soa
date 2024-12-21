@@ -1,3 +1,6 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,26 +21,26 @@
         <p><strong>Selected Flight:</strong> <span id="selected-flight"></span></p>
 
         <!-- Passenger Details Form -->
-        <form id="passengerForm" autocomplete="on">
-            <div class="form-group">
-                <label for="first-name">First Name:</label>
-                <input type="text" id="first-name" name="first-name" autocomplete="given-name" required>
-            </div>
+        <form action="/submitPassengerDetails" method="POST" autocomplete="on">
+            <input type="hidden" name="numPassengers" value="${numPassengers}">
+            <c:forEach var="i" begin="1" end="${numPassengers}">
+                <div class="form-group">
+                    <h3>Passenger ${i}</h3>
+                    <label>First Name:</label>
+                    <input type="text" name="passenger[${i}].firstName" autocomplete="given-name" required>
 
-            <div class="form-group">
-                <label for="last-name">Last Name:</label>
-                <input type="text" id="last-name" name="last-name" autocomplete="family-name" required>
-            </div>
+                    <label>Last Name:</label>
+                    <input type="text" name="passenger[${i}].lastName" autocomplete="family-name" required>
 
-            <div class="form-group">
-                <label for="phone">Phone Number:</label>
-                <input type="tel" id="phone" name="phone" autocomplete="tel" required>
-            </div>
-
+                    <label>Phone Number:</label>
+                    <input type="tel" name="passenger[${i}].phone" autocomplete="tel" required>
+                </div>
+            </c:forEach>
             <div class="form-group">
                 <button type="submit" class="submit-btn">Submit</button>
             </div>
         </form>
+
     </div>
 
     <%@ include file="footer.jsp" %>
