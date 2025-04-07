@@ -12,6 +12,5 @@ import lombok.*;
 public class Auth {
     @jakarta.persistence.Id
     private String username;
-
     private String password;
 }

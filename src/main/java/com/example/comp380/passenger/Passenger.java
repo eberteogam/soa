@@ -27,8 +27,7 @@ public class Passenger {
     @Column(name = "passenger_last_name")
     private String passengerLastName;
 
-    @Column(name = "passenger_contact_number")
-    private String passengerContactNumber;
+    @Column(name = "passenger_contact_number") private String passengerContactNumber;
 
     @ManyToMany(mappedBy="passengers")
     private Set<Booking> bookings = new HashSet<>();
